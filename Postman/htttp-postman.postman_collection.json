@@ -1,0 +1,153 @@
+{
+	"info": {
+		"name": "htttp\\postman",
+		"_postman_id": "7c6e1b08-7673-79b6-5463-a3325a07ff72",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/Help/Api/GET-api-Authors",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Help",
+						"Api",
+						"GET-api-Authors"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/Help/Api/POST-api-Authors",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Help",
+						"Api",
+						"POST-api-Authors"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/Help/Api/DELETE-api-Authors-id",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Help",
+						"Api",
+						"DELETE-api-Authors-id"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/Help/Api/PUT-api-Authors-id",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Help",
+						"Api",
+						"PUT-api-Authors-id"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET (Barney Stinson)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "aerobatic",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "aerobatic",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://auth-demo.aerobatic.io/protected-standard/",
+					"protocol": "https",
+					"host": [
+						"auth-demo",
+						"aerobatic",
+						"io"
+					],
+					"path": [
+						"protected-standard",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
