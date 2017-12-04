@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <header>
+        <title>Работа с формами</title>
+        </header>
+        <address>Станислав Емшанов</address>
+    </head>
+    <body>
+        <div>
+            <form id=login action="Login" method="post">
+                <p>E-mail</p>
+                <input type="email">
+                <p>Password</p>
+                <input type=password>
+                <p><input type="submit"></p>
+                <input type="button" value="НЕ НАЖИМАЙ!" onclick="alert('Вы нажали кнопку!')" name="button"> 
+                <p>Фото <input type=file name=photo size=50</p>
+                <p><input type="reset" value ="Сброс"></p>
+            </form>
+            <form id=browserFB action="browserfb" method="post">
+                <p>Какой браузер в основном используете:</p>
+                <input type="radio" name="browser" value="gc" checked> Google Chrome<Br>
+                <input type="radio" name="browser" value="ie"> Internet Explorer<Br>
+                <input type="radio" name="browser" value="opera"> Opera<Br>
+                <input type="radio" name="browser" value="firefox"> Firefox<Br>
+                <p>Какие браузеры установлены на Вашем компьютере:</p>
+                <input type="checkbox" name="browser1" value="gc" checked> Google Chrome<Br>
+                <input type="checkbox" name="browser1" value="ie"> Internet Explorer<Br>
+                <input type="checkbox" name="browser1" value="opera"> Opera<Br>
+                <input type="checkbox" name="browser1" value="firefox"> Firefox<Br>
+                <p>Оставьте свой отзыв:</p>
+                <p><input name=text type=text size="50"></p>
+                <p><input type="submit"></p>
+            </form>
+        </div>
+    </body>
+</html>
