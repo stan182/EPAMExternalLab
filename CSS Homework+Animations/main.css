@@ -8,8 +8,6 @@ body, html {
 	min-height: auto;
 }
 
-
-
 .login-wrapper {
 	transform: translate(-50%, -50%);
 	position: absolute; 
@@ -194,13 +192,22 @@ html, body {
 	margin: 0 auto;
 	padding: 50px ;
 	overflow: hidden;
-
 }
 
 .cat {
 	display: inline-block;
 	padding: 15px;
 	width: 220px;
+	margin-top: 5px;
+	background: #b5deb4;
+
+}
+
+.cat:hover {
+	background:#71b7a4;
+	transition-timing-function: ease-out;
+	transition-duration: 1s;
+
 }
 
 .cat img {
@@ -216,6 +223,8 @@ html, body {
 	cursor: pointer;
 }
 
+
+
 .name-cat {
 	margin: 5px;
 	width: auto;
@@ -229,7 +238,6 @@ span.counter {
 .footer {
     background-color: lightblue;
     position: relative;
-    margin-top: -50px;
     height:50px;
     clear: both;
     overflow: auto;
@@ -306,8 +314,8 @@ li {
 }
 
 .products img {
-	height: 100px;
-	width: 100px;
+	height: auto;
+	width: 120px;
 }
 
 .products li {
@@ -344,8 +352,8 @@ h5 {
 .products-lw li {
     margin-bottom: 10px;
     padding: 15px 20px 10px;
-
 }
+
 
 .products-lw img {
 	display: block;
@@ -379,6 +387,7 @@ h5 {
 .product-description {
 	float: left;
 	width: 80%;
+
 }
 
 .product-img-wrapper {
@@ -389,7 +398,42 @@ h5 {
 
 .product-description button {
 	border-radius: 10px;
-	
 	padding: 5px 10px;
 	border: 1px solid black;
+	transition: 1s ease;
 }
+
+button:hover {
+	background: black;
+	color: white;
+}
+
+.product-description span {
+	width: auto;
+	padding-left: 2px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background: yellow;
+	animation-name: example;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes example {
+	from {background: yellow; color: red;}
+	to {background: red; color: yellow;}
+}
+
+.cat img:hover {
+	animation-name: example-2;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes example-2 {
+	from {background: #aee0ad; width: 100%;}
+	to {background: #77e074; width: 90%;}
