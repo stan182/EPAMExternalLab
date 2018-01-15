@@ -1,0 +1,24 @@
+
+.wrapper-forecast {
+	display: flex;
+	flex-direction: row;
+	text-align: center; 
+	justify-content: space-evenly;
+	flex-wrap: nowrap;
+	margin-top: 10px;
+}
+
+.wrapper-forecast>div {
+	min-width: 90px;
+	line-height: 1;
+	padding: 5px;
+}
+
+.pollen {
+	padding-top: 2px;
+	font-size: 13px;
+}
+
+.wrapper-forecast>.value {
+	font-size: 14px;
+}

@@ -1,0 +1,48 @@
+
+.wrapper-forecast {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+}
+
+.wrapper-forecast>div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #80808094; 
+	line-height: 1;
+	min-height: 100%;
+	padding-right: 30px;
+}
+
+h5 {
+	display: inline-block;
+	width: 65px;
+	text-align: left;
+}
+
+.wrapper-forecast>div>p,h5 {
+	line-height: 1;
+	text-align: left;
+	display: inline;
+	font-size: 14px;
+}
+
+.pollen {
+	font-size: 14px;
+}
+
+.wrapper-forecast>.value {
+	font-size: 14px;
+}
+
+.vert-temp {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 25%;
+	font-size: 14px;
+	text-align: center;
+}
