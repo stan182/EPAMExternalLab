@@ -155,4 +155,106 @@ console.log(unconditionMultiply(2, 2));
 
 //HT8--------------------------------------------------------
 
-....
+ function deepCompare(x, y) {
+   if (typeof x !== 'object') {
+     return x === y;
+   } else {
+     var equal = Object.keys(x).length === Object.keys(y).length;
+     for (var k in x) {
+       equal = equal && deepCompare(x[k], y[k]);
+     }
+     return equal;
+   }
+ }
+ 
+console.log(deepCompare({ one: 1, two: '2' }, { one: 1, two: '2' }));
+console.log(deepCompare({ one: 1, two: '2' }, { two: '2' }));
+console.log(deepCompare({ one: 1, two: '2' }, { one: 1, two: 2 }));
+
+//HT9--------------------------------------------------------
+
+function replaceQuotes(str) {
+  return str.replace(/'/g, '"');
+}
+
+console.log(replaceQuotes("I’m the 'hero'"));
+
+//HT10--------------------------------------------------------
+
+function findNumbers(arr) {
+  var result = [];
+  for (var x in arr) {
+    if (/^[+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?$/.test(arr[x])) {
+      result.push(arr[x]);
+    }
+  }
+  return result;
+}
+
+console.log(findNumbers(["1", "-1", "+15", "1.55", ".5", "5.", "1.3e2", "1E-4", "1e+12"]));
+
+console.log(findNumbers(["1a", "+-1", "1.2.3", "1+1", "1e4.5", ".5.", "1f5", "."]));
+
+//HT11-------------------------------------------------------
+
+function getNames(date) {
+  var month = date.getMonth(),
+    dow = date.getDay();
+  var m, d;
+  if (month === 0) {
+    m = "January";
+  } else if (month === 1) {
+    m = "February";
+  } else if (month === 2) {
+    m = "March";
+  } else if (month === 3) {
+    m = "April";
+  } else if (month === 4) {
+    m = "May";
+  } else if (month === 5) {
+    m = "June";
+  } else if (month === 6) {
+    m = "July";
+  } else if (month === 7) {
+    m = "August";
+  } else if (month === 8) {
+    m = "September";
+  } else if (month === 9) {
+    m = "October";
+  } else if (month === 10) {
+    m = "November";
+  } else if (month === 11) {
+    m = "December";
+  }
+  if (dow === 0) {
+    d = "Sunday";
+  } else if (dow === 1) {
+    d = "Monday";
+  } else if (dow === 2) {
+    d = "Tuesday";
+  } else if (dow === 3) {
+    d = "Wednesday";
+  } else if (dow === 4) {
+    d = "Thursday";
+  } else if (dow === 5) {
+    d = "Friday";
+  } else if (dow === 6) {
+    d = "Saturday";
+  }
+  return m + ", " + d;
+}
+
+console.log(getNames(new Date()));
+
+//HT12-------------------------------------------------------
+
+function differenceInYears(date1, date2) {
+  var diff = date1.getTime() - date2.getTime();
+  var abs = Math.abs(diff);
+  var diffInYears = abs / 1000.0 / 60 / 60 / 24 / 365;
+  return Math.round(diffInYears * 10) / 10;
+}
+
+console.log(differenceInYears(new Date(2014,10,2), new Date(2016,10,2)));
+console.log(differenceInYears(new Date(2014, 0), new
+Date(2014, 6)));
