@@ -139,24 +139,26 @@ alert(test(number));
 
 //Для задания 'a':
 var c = 0;
-var i = setInterval(function() { 
-	console.log('Random text'); 
-	c++; 
-	}, 2000);
-setInterval(function() { 
-	if (c >=5) { 
-		clearInterval(i); 
+var i = setInterval(function() {
+	console.log('Random text');
+	c++;
+  if (c >=5) {
+		clearInterval(i);
 		} 
-	});
-
+    }, 2000);
 
 //Для задания 'b':
 function timeout(n) {
-  setTimeout(function() {
-    console.log('Random text');
-    timeout(n+2000);
+    var time = n+2000;
+    setTimeout(function() {
+      console.log('Random text');
+    if (time > 9000) {
+        return; 
+    } else {
+      timeout(time);
+    }
   }, n);
 }
 
-timeout(1);
+timeout(1000);
 
