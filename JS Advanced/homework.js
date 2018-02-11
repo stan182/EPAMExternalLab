@@ -2,10 +2,8 @@
 
 function compare(value1, value2) {
   var promise = new Promise(function(resolve, reject) {
-    if (typeof value1 !== 'number' || typeof value2 !== 'number') {
-      reject("Wrong numbers");
-    } else {
-      var diff;
+    var diff;
+    if (typeof value1 === 'number' && typeof value2 === 'number') {
       if (value1 < value2) {
         diff = -1;
       } else if (value1 > value2) {
@@ -13,17 +11,23 @@ function compare(value1, value2) {
       } else {
         diff = 0;
       }
-      setTimeout(function() { resolve(diff); }, 1000);
     }
+    setTimeout(function(){
+      if (typeof diff === "undefined") {
+        reject('Wrong number');
+      } else {
+        resolve(diff);
+      }
+    }, 1000);
   });
   return promise;
 }
 
-console.log(compare(2, 1));
-console.log(compare(3, 3));
-console.log(compare(1, 5));
-console.log(compare(2));
-console.log(compare(1, '2'));
+compare(2, 1).then(console.log, console.log);
+compare(3, 3).then(console.log, console.log);
+compare(1, 5).then(console.log, console.log);
+compare(2).then(console.log, console.log);
+compare(1, '2').then(console.log, console.log);
 
 //HT2------------------------------------------------
 
@@ -43,9 +47,9 @@ random(3)
   })
   .then(function(x) {
     return random(x);
-});
+  })
+  .then(console.log);
 
-console.log(random(3));
 
 //Для задания 'b':
 function random() {
