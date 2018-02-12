@@ -18,46 +18,41 @@ console.log (new SomeBallDecorator(new Ball()).getDescription());
 
 // Task #2
 
-function Observable() {
+function Wallet() {
+  this.amount = Math.random() * 1000; 
   this.observers = [];
 }
-
-Observable.prototype.addObserver = function(observer) {
+Wallet.prototype.send = function () { 
+    const minus = Math.random() * 100; 
+    this.notify(minus);
+    this.amount = this.amount - minus; 
+    console.log(this.amount); 
+    if(this.amount > 0) { 
+      setTimeout(this.send.bind(this), Math.random() * 500); 
+    } else { 
+      console.log('WALLET is empty'); 
+    } 
+};
+Wallet.prototype.eventFromWallet = function(plus) {
+  this.amount = this.amount + plus; 
+};
+Wallet.prototype.subscribe = function(observer) {
   this.observers.push(observer);
-}
+};
+Wallet.prototype.notify = function(minus) {
+  this.observers.forEach(function(observer) {
+    observer.eventFromWallet(minus);
+  });
+};
+  
+let wallet1 = new Wallet();
+let wallet2 = new Wallet();
 
-Observable.prototype.removeObserver = function(observer) {
-  var index = this.observers.indexOf(observer);
-  if (index>=0){
-     this.observers.splice(index,1);
-  }
-}
+wallet1.subscribe(wallet2);
+wallet2.subscribe(wallet1);
 
-Observable.prototype.notify = function(data) {
-  for(var index in this.observers) {
-    this.observers[index].onData(data);
-  }
-}
-
-function Observer(name) {
-  this.name = name;
-}
-
-Observer.prototype.onData = function(data) {
-  console.log(this.name+": "+data);
-}
-
-var ober1 = new Observer('1');
-var ober2 = new Observer('2');
-
-var obable = new Observable();
-obable.addObserver(ober1);
-obable.addObserver(ober2);
-
-obable.notify('Hi');
-
-obable.removeObserver(ober2);
-obable.notify('Hi2');
+wallet1.send();
+wallet2.send();
 
 // Task #3
 
