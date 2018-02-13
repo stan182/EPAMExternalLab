@@ -42,7 +42,8 @@ function Car(wheelsCount, doorsCount) {
 	Vehicle.apply(this);
 	this.wheelsCount = wheelsCount || 4;
 	this.doorsCount = doorsCount || 4;
-	this.openDoors = 0;
+	this.openedDoors = 0;
+	this.closedDoors = 0;
 	this.carCount = 0;
 	if (!Car.prototype.carCount) {
 		Car.prototype.carCount = 1;
@@ -54,18 +55,20 @@ Car.prototype = Object.create(Vehicle.prototype);
 Car.prototype.constructor = Car;
 
 Car.prototype.openDoor = function() {
-	if (this.openDoors < this.doorsCount) {
-		console.log(++this.openDoors);
+	if (this.openedDoors < this.doorsCount) {
+  	this.openedDoors++;
+		console.log("Opened doors: " + this.openedDoors + "/" + this.doorsCount);
   	} else {
-		console.log(this.openDoors);
+		console.log("Can't open the door! All doors: " + this.doorsCount);
 	}
 };
 
 Car.prototype.closeDoor = function() {
-	if (this.openDoors > 1) {
-		console.log(this.doorsCount - (--this.openDoors));
-	} else {
-		console.log(this.doorsCount - this.openDoors);
+	if (this.closedDoors < this.openedDoors) {
+  	this.closedDoors++;
+		console.log("Closed doors: " + this.closedDoors + "/" + this.openedDoors);
+  	} else {
+		console.log("Can't close the door! All opened doors: " + this.openedDoors);
 	}
 };
 
@@ -84,19 +87,18 @@ Car.prototype.getCarCount = function() {
 function MonsterTruck (wheelsSize) {
 	Car.apply(this);
 	this.wheelsSize = wheelsSize || "BigFoot";
+	var inheritOpenDoor = this.openDoor;
+	var inheritCloseDoor = this.closeDoor;
+  	this.openDoor = function() {
+		setTimeout(inheritOpenDoor.bind(this), 1000);
+	};
+	this.closeDoor = function() {
+		setTimeout(inheritCloseDoor.bind(this), 1000);
+	};
 }
+
 MonsterTruck.prototype = Object.create(Car.prototype);
 MonsterTruck.prototype.constructor = MonsterTruck;
-
-MonsterTruck.prototype.openDoor = function() {
-	if (this.openDoors < this.doorsCount) {
-		setTimeout(function() {
-			console.log(++this.openDoors);
-		}, 1000);
-	} else {
-		console.log(this.openDoors);
-	}
-};
 
 MonsterTruck.prototype.toString = function() {
 	return "MosterTruck speed: " + this.speed + "; have a wheels: " + this.wheelsCount + "; and have a doors: " + this.doorsCount; + "; wheelsSize: " + this.wheelsSize;
@@ -114,4 +116,4 @@ console.log(bike.speed);
 console.log(car.speed);
 console.log(mtruck.speed);
 console.log(mtruck.wheelsCount);
-console.log(mtruck.doorsCountnt);
+console.log(mtruck.doorsCount);

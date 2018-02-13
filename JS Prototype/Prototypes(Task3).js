@@ -35,20 +35,24 @@ function Car(wheelsCount, doorsCount) {
 	this.wheelsCount = wheelsCount || 4;
 	this.doorsCount = doorsCount || 4;
 	this.openedDoors = 0;
+	this.closedDoors = 0;
 	Car.carCount += 1;
-		if (this.openedDoors === this.doorsCount && this.openedDoors > 0) {
-			console.log("Can't open the door");
-		} else {
-			this.openedDoors += 1;
-			console.log("Opened doors: " + this.openedDoors);
-		}
-		if (this.openedDoors === 0) {
-			console.log("Can't close the door");
-		} else {
-			this.openedDoors -= 1;
-			this.closedDoors += 1;
-			console.log("Closed doors: " + this.closedDoors);
-		}
+	this.openDoor = function() {
+	    if (this.openedDoors < this.doorsCount) {
+	      this.openedDoors++;
+	      console.log("Opened doors: " + this.openedDoors + "/" + this.doorsCount);
+	    } else {
+	      console.log("Can't open the door! All doors: " + this.doorsCount);
+	     }
+	}
+ 	this.closeDoor = function() {
+	  	if (this.closedDoors < this.openedDoors) {
+	  		this.closedDoors++;
+			console.log("Closed doors: " + this.closedDoors + "/" + this.openedDoors);
+	  	} else {
+			console.log("Can't close the door! All opened doors: " + this.openedDoors);
+			}
+	  	}
 	this.toString = function() {
 		return "Car speed: " + this.speed + "; have a wheels: " + this.wheelsCount + "; and have a doors: " + this.doorsCount;
 	};
@@ -59,18 +63,18 @@ function Car(wheelsCount, doorsCount) {
 	Car.getCarCount = function() {
 		return Car.carCount;
 	};
-}
-
+} 
+	
 function MonsterTruck(wheelsSize) {
 	Car.call(this)
 	this.wheelsSize = wheelsSize || "BigFoot";
-	var CARopenDoors = this.openedDoors;
-	this.openDoor = function() {
-		setTimeout(CARopenDoors.bind(this), 1000);
+	var inheritOpenDoor = this.openDoor;
+	var inheritCloseDoor = this.closeDoor;
+  	this.openDoor = function() {
+		setTimeout(inheritOpenDoor.bind(this), 1000);
 	};
-	var CARcloseDoors = this.closedDoors;
 	this.closeDoor = function() {
-		setTimeout(CARcloseDoors.bind(this), 1000);
+		setTimeout(inheritCloseDoor.bind(this), 1000);
 	};
 	this.toString = function() {
 		return "MosterTruck speed: " + this.speed + "; have a wheels: " + this.wheelsCount + "; and have a doors: " + this.doorsCount; + "; wheelsSize: " + this.wheelsSize;

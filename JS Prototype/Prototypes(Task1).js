@@ -1,36 +1,29 @@
-function Vehicle(speed) {
- this.speed = speed || 0;
-}
+var Vehicle = {
+	speed: 0
+};
 
-function Bike(wheelsCount) {
- Vehicle.apply(this);
- this.wheelsCount = wheelsCount || 2;
-}
-Bike.prototype = Object.create(Vehicle.prototype);
-Bike.prototype.constructor = Bike;
+var Bike = {
+	wheelsCount: 2
+};
 
-function Car(wheelsCount, doorsCount) {
-  Vehicle.apply(this);
- this.wheelsCount = wheelsCount || 4;
- this.doorsCount = doorsCount || 4;
- this.openedDoors = 0;
-}
-Car.prototype = Object.create(Vehicle.prototype);
-Car.prototype.constructor = Car;
+Bike.__proto__ = Vehicle;
 
-function MonsterTruck (wheelsSize) {
-  Car.apply(this);
- this.wheelsSize = wheelsSize || "BigFoot";
-}
-MonsterTruck.prototype = Object.create(Car.prototype);
-MonsterTruck.prototype.constructor = MonsterTruck;
+var Car = {
+	wheelsCount: 4,
+	doorsCount: 4,
+};
 
-var bike = new Bike();
-var car = new Car();
-var mtruck = new MonsterTruck();
+Car.__proto__ = Vehicle;
 
-console.log(bike.speed);
-console.log(car.speed);
-console.log(mtruck.speed);
-console.log(mtruck.wheelsCount);
-console.log(mtruck.doorsCount);
+var MonsterTruck = {
+	wheelsSize: "BigFoot"
+};
+
+MonsterTruck.__proto__ = Car;
+
+console.log(Bike.speed);
+console.log(Car.speed);
+console.log(MonsterTruck.speed);
+console.log(MonsterTruck.wheelsCount);
+console.log(MonsterTruck.doorsCount);
+console.log(MonsterTruck.wheelsSize);
