@@ -51,7 +51,7 @@ class Bike extends Vehical {
 
 }
 
-var bike = new Bike();
+let bike = new Bike();
 bike.move();
 bike.move();
 bike.move();
