@@ -1,0 +1,33 @@
+.wrapper-forecast>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #80808094; 
+	line-height: 1;
+	min-height: 100%;
+	padding-right: 30px;
+}
+
+h5 {
+	width: 65px;
+}
+
+.wrapper-forecast>div>p,h5 {
+	font-size: 14px;
+}
+
+.pollen {
+	font-size: 14px;
+}
+
+.wrapper-forecast>.value {
+	font-size: 14px;
+}
+
+.vert-temp {
+	display: flex;
+	justify-content: space-between;
+	width: 25%;
+	font-size: 14px;
+	text-align: center;
+}

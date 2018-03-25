@@ -1,0 +1,67 @@
+.container {
+	flex-direction: column;
+}
+
+.menu, .aside-advert {
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	width: 100%;
+	background: #f9f43847;
+}
+
+.menu>div {
+	margin: 2px;
+	background: #f9f9f9;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.content {
+	background: #8080800d;
+	width: 100%;
+}
+
+.wrapper-forecast>div {
+	padding: 5px;
+	padding-right: 30px;
+}
+
+.advert {
+	margin: 0px;
+	background: #f9f9f9;
+	width: 100%;
+	overflow: hidden;
+}
+
+.wrapper-forecast>div>span,h5 {
+	font-size: 12px;
+	width: 65px;
+}
+
+img {
+	width: 40px;
+	height: 40px;
+}
+
+.temperature {
+	font-size: 40px;
+	color: black;
+	line-height: 1;
+}
+
+sup {
+	color: gray;
+	font-size: 	20px;
+}
+.pollen {
+	width: 44px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.vert-temp {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+}

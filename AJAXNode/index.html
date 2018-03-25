@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" media="(min-width: 1000px)" href="css/desktop-view.css">
+    <link rel="stylesheet" media="(max-width: 1000px)" href="css/tablet-view.css">
+    <link rel="stylesheet" media="(max-width: 530px)" href="css/phone-view.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>
+        World Weather
+    </title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <header>
+            <h1>World Weather</h1>
+        </header>
+        <div class="container">
+            <nav class="menu">
+                <div class="shadow city" onclick="getResponse('London')">LONDON</div>
+                <div class="shadow city" onclick="getResponse('Ryazan')">RYAZAN</div>
+                <div class="shadow city" onclick="getResponse('New+York')">NEW YORK</div>
+                <div class="shadow city" onclick="getResponse('Moscow')">MOSCOW</div>
+                <div class="shadow city" onclick="getDataFromMyServer('Vladivostok')">VLADIVOSTOK</div>
+                <div class="shadow city" onclick="getDataFromMyServer('Dubai')">DUBAI</div>
+                <div class="shadow city" onclick="getDataFromMyServer('Tokyo')">TOKYO</div>
+            </nav>
+            <div class="content shadow">
+                <div id="current_widget">
+                    <div class="location-date">
+                        <h1>New York, NY</h1>
+                        <span>Tuesday, April 15th <br>
+					Overcast <br></span>
+                    </div>
+                    <div class="tuesday">
+                        <div class="wrapper-today">
+                            <img class="today-img" src="assets/Weather/Clouds.png">
+                            <div class="temperature" id="temp_field">
+                                58<sup>°F</sup>
+                            </div>
+                        </div>
+                        <div class="today-info">
+                            <span>Precipitation: <span class="value">100%</span><br></span>
+                            <span>Humidity: <span class="value">97%</span><br></span>
+                            <span>Wind: <span class="value">4 mph SW</span><br></span>
+                            <span>Pollen Count: <span class="value">36</span></span </div </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper-forecast" id="under_widget">
+                    <div>
+                        <h5>Today</h5>
+                        <div>
+                            <img src="assets/Weather/Thunderstorms.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span id="temp_field" style="color: black">68° </span><span style="color: gray">36°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Wednesday</h5>
+                        <div>
+                            <img src="assets/Weather/Clear.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">50° </span><span style="color: gray">39°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Thursday</h5>
+                        <div>
+                            <img src="assets/Weather/Clear.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">55° </span><span style="color: gray">39°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Friday</h5>
+                        <div>
+                            <img src="assets/Weather/Mostly Cloudy.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">54° </span><span style="color: gray">43°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Saturday</h5>
+                        <div>
+                            <img src="assets/Weather/Rain.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">64° </span><span style="color: gray">46°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Sunday</h5>
+                        <div>
+                            <img src="assets/Weather/Rain.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">64° </span><span style="color: gray">50°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Monday</h5>
+                        <div>
+                            <img src="assets/Weather/Mostly Cloudy.png">
+                        </div>
+                        <div class="vert-temp">
+                            <span style="color: black">61° </span><span style="color: gray">50°</span>
+                        </div>
+                        <div class="pollen">
+                            <span style="color: gray">Pollen </span><span style="color: black">36</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="aside-advert">
+                <div class="advert shadow">
+                    <a href="#">aside</a>
+                </div>
+            </aside>
+        </div>
+        <script type="text/javascript" src="script/index.js"></script>
+        <footer>
+            <h4>© Student EPAM</h4>
+        </footer>
+    </div>
+</body>
+
+</html>
