@@ -9,17 +9,19 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get("/Vladivostok", function(req, res) {
-    res.json(Vladivostok);
-});
-
-app.get("/Dubai", function(req, res) {
-    res.json(Dubai);
-});
-
-app.get("/Tokyo", function(req, res) {
-    res.json(Tokyo);
-});
+app.get('/:name', function(req, res) {
+    switch (req.params.name) {
+        case "Vladivostok":
+            res.json(Vladivostok);
+            break;
+        case "Dubai":
+            res.json(Dubai);
+            break;
+        case "Tokyo":
+            res.json(Tokyo);
+            break;
+    }
+})
 
 app.listen(3000, function() {
     console.log('App listening on port 3000!');

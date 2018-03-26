@@ -1,8 +1,7 @@
 // получение данных с внешнего API
 
 function getResponse(cityName) {
-    const URL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&APPID=2bd24fe8b3c5583e1f43e0749a2fe1a1`;
-
+    var URL = `${API_URL}forecast?q=${cityName}&units=metric&${API_KEY}`;
     fetch(URL).then(async function(forecast) {
         var forecast = await forecast.json();
         getCurrentForecast(forecast);
@@ -13,7 +12,7 @@ function getResponse(cityName) {
 // получение данных с локального сервера
 
 function getDataFromMyServer(cityName) {
-    const url = `http://localhost:3000/${cityName}`
+    const url = `${LOCAL_URL}${cityName}`;
     fetch(url).then(async function(forecast) {
         var forecast = await forecast.json();
         getCurrentForecast(forecast);
